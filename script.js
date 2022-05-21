@@ -451,15 +451,15 @@ function start_algorithm() {    // function that the button triggers, start diff
     switch (algo_select.value) {
         case "- select algorithm -":
             break;
-        case "selection sort": selection_sort();
+        case "Selection sort": selection_sort();
             break;
-        case "bubble sort": bubble_sort();
+        case "Bubble sort": bubble_sort();
             break;
-        case "insertion sort": insertion_sort();
+        case "Insertion sort": insertion_sort();
             break;
-        case "quick sort": quick_sort(0, num_elem-1);
+        case "Quick sort": quick_sort(0, num_elem-1);
             break;
-        case "merge sort": merge_sort(0, num_elem-1);
+        case "Merge sort": merge_sort(0, num_elem-1);
             break;
     }
 }
