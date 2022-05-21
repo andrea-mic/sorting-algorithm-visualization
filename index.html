@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="blocks-container"></div>
+
+    <div id="button-container" class="container">
+    <!-- <input id="sort-button" class="test-button" type="button" onclick="test()" title="testButton" value="start test">
+    <input id="swap-button" class="test-button" type="button" onclick="swap(blocks[1], blocks[num_elem-2])" title="swapButton" value="swap test">
+    <input id="move-button" class="test-button" type="button" onclick="move(blocks[num_elem-2], 0)" title="swapButton" value="move test"> -->
+    <!-- <input id="bubble-sort-button" class="test-button" type="button" onclick="bubble_sort()" title="Start bubble sort" value="Bubble sort">
+    <input id="selection-sort-button" class="test-button" type="button" onclick="selection_sort()" title="Start selection sort" value="Selection sort">
+    <input id="insertion-sort-button" class="test-button" type="button" onclick="insertion_sort()" title="Start insertion sort" value="Insertion sort">
+    <input id="quick-sort-button" class="test-button" type="button" onclick="quick_sort(0, num_elem-1);" title="Start quick sort" value="Quick sort">
+    <input id="merge-sort-button" class="test-button" type="button" onclick="merge_sort(0, num_elem-1);" title="Start merge sort" value="Merge sort">
+    <input id="shuffle-button" class="test-button" type="button" onclick="shuffle()" title="shuffleButton" value="shuffle test"> -->
+    
+    <select class="test-button" id="algorithm-select" title="Select the algorithm">
+        <option>- select algorithm -</option>
+        <option>selection sort</option>
+        <option>bubble sort</option>
+        <option>insertion sort</option>
+        <option>quick sort</option>
+        <option>merge sort</option>
+    </select>
+    <input class="test-button" id="sorting_start_button" type="button" onclick="start_algorithm()" value="Start sorting!" />
+    <input id="shuffle-button" class="test-button" type="button" onclick="shuffle()" title="shuffleButton" value="shuffle test"/>
+
+    </div>
+
+    <div id="option-container" class="container"">
+
+        <label>Delay:</label>
+        <input id="delay-slider" class="slider" type="range" min="0" max="900" title="Adjust the delay of the animations">
+        
+        <div style="margin-right: 100%;"></div> <!-- line break -->
+        <label>Animation smoothness:</label>
+        <input id="anim-time-slider" class="slider" type="range" min="0" max="300" title="Adjust the smoothness of the animations">
+        
+        <div style="margin-right: 100%;"></div> <!-- line break -->
+        <label>Number of items:</label>
+        <input id="num-items-slider" class="slider" type="range" min="3" max="100" title="Adjust the number of items">
+        
+        <div style="margin-right: 100%;"></div> <!-- line break -->
+        <label>Width of items:</label>
+        <input id="width-slider" class="slider" type="range" min="0" max="200" title="Adjust the number of items">
+
+    </div>
+</body>
+
+<script src="script.js"></script>
+</html>
