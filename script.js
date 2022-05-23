@@ -74,7 +74,7 @@ function initSliders() {
         
         stop_flag = true;
         setTimeout( () => { 
-            stop_flag = false;
+            // stop_flag = false;   set false by start_algorithm()
             setUnsorted(...blocks);
             dehighlight(...blocks);
             setUnmarked(...blocks); 
@@ -257,8 +257,10 @@ async function insertion_sort() {
 
 async function quick_sort(i,j) {
 
-    if (i===0 && j===num_elem && sorting_flag) return; 
-    else sorting_flag = true;
+    if (i===0 && j===num_elem-1)
+        if (sorting_flag) return;
+        else sorting_flag = true;
+    
 
     let i_0 = i;
     let j_0 = j;
@@ -307,12 +309,10 @@ async function quick_sort(i,j) {
     setSorted(blocks[i]);
 
     if (i!= j_0){
-    console.log(i+1, j_0);
     await quick_sort(i+1, j_0);
     }
 
     if (i!=i_0) {
-    console.log(i_0, i-1)
     await quick_sort(i_0, i-1);
     }
 
@@ -321,10 +321,14 @@ async function quick_sort(i,j) {
 
 async function merge_sort(i,j) {
 
+    if (i===0 && j===num_elem-1)
+        if (sorting_flag) return;
+        else sorting_flag = true;
+
     if (i === j) return;
     
     let q = Math.floor((i + j) / 2);
-    
+
     await merge_sort(i, q);
     await merge_sort(q+1, j);
 
@@ -360,7 +364,7 @@ async function merge_sort(i,j) {
     for (let z=i; z<=j; z++) 
         blocks[z].repr.style.opacity = 1;
     
-
+    if (i===0 && j===num_elem-1) sorting_flag = false;
 }
 
 function getRandomColor() {
@@ -376,6 +380,7 @@ function getRandomColor() {
 function shuffle() {
 
     stop_flag = true;
+    sorting_flag = false;
 
     let newBlocks = [];
     let positions = [];
@@ -390,11 +395,10 @@ function shuffle() {
     blocks = newBlocks;
 
     setTimeout( () => { 
-        stop_flag = false;
+        // stop_flag = false;
         setUnsorted(...blocks);
         dehighlight(...blocks);
-        setUnmarked(...blocks);
-        sorting_flag = false; 
+        setUnmarked(...blocks); 
     }, delay*1.1);
 }
 
@@ -448,6 +452,8 @@ function dehighlight(...bs) {
 
 function start_algorithm() {    // function that the button triggers, start different algorithms based on the value of the select
 
+    stop_flag = false;
+
     switch (algo_select.value) {
         case "- select algorithm -":
             break;
@@ -483,7 +489,7 @@ var SELECTED_COLOR = getComputedStyle(root).getPropertyValue('--selected-color')
 var width_coeff = 1;
 var scaled_width = COLUMNS_WIDTH * width_coeff;
 
-var num_elem = 15;
+var num_elem = 20;
 var delay = 1000*parseFloat( getComputedStyle(root).getPropertyValue('--transition-time') );
 var anim_time = 1;
 
